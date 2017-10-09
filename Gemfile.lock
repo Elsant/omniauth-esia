@@ -1,0 +1,73 @@
+PATH
+  remote: .
+  specs:
+    omniauth-esia (0.1.0)
+      omniauth-oauth2 (~> 1.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    byebug (9.1.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    diff-lcs (1.3)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
+    hashdiff (0.3.7)
+    hashie (3.5.6)
+    jwt (1.5.6)
+    multi_json (1.12.2)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
+    oauth2 (1.4.0)
+      faraday (>= 0.8, < 0.13)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.7.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    public_suffix (3.0.0)
+    rack (2.0.3)
+    rack-test (0.7.0)
+      rack (>= 1.0, < 3)
+    rake (10.5.0)
+    rspec (3.6.0)
+      rspec-core (~> 3.6.0)
+      rspec-expectations (~> 3.6.0)
+      rspec-mocks (~> 3.6.0)
+    rspec-core (3.6.0)
+      rspec-support (~> 3.6.0)
+    rspec-expectations (3.6.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.6.0)
+    rspec-mocks (3.6.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.6.0)
+    rspec-support (3.6.0)
+    safe_yaml (1.0.4)
+    webmock (3.1.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.16.a)
+  byebug
+  omniauth-esia!
+  rack-test (~> 0.7.0)
+  rake (~> 10.0)
+  rspec (~> 3.0)
+  webmock (~> 3.1)
+
+BUNDLED WITH
+   1.16.0.pre.2
