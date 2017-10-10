@@ -11,7 +11,7 @@ RSpec.describe Omniauth::Strategies::Esia, :type => :strategy do
     end
   end
 
-  it "has a version number" do
+  it 'has a version number' do
     expect(Omniauth::Esia::VERSION).not_to be nil
   end
 

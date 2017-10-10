@@ -17,14 +17,14 @@ module Omniauth
       option :crt_path, 'config/keys/certificate.crt'
       option :access_type, 'online'
 
-      uid { JWT.decode(access_token.token, nil, false).first["urn:esia:sbj_id"] }
+      uid { JWT.decode(access_token.token, nil, false).first['urn:esia:sbj_id'] }
 
       info do
         {
-          first_name:  raw_info["firstName"],
-          last_name:   raw_info["lastName"],
-          middle_name: raw_info["middleName"],
-          email:       raw_info["email"]
+          first_name:  raw_info['firstName'],
+          last_name:   raw_info['lastName'],
+          middle_name: raw_info['middleName'],
+          email:       raw_info['email']
         }
       end
 
@@ -82,11 +82,11 @@ module Omniauth
         end
 
         def timestamp
-          @timestamp ||= Time.now.strftime("%Y.%m.%d %H:%M:%S %z")
+          @timestamp ||= Time.now.strftime('%Y.%m.%d %H:%M:%S %z')
         end
 
         def get_email
-          { "email" => access_token
+          {'email' => access_token
               .get("/rs/prns/#{uid}/ctts?embed=(elements)")
               .parsed.fetch('elements', {})
               .first.fetch('value', '') }
