@@ -70,6 +70,10 @@ client_options: {
         token_url:     '/aas/oauth2/te'
       }
 ```
+## Changes
+
+v 0.2.0 - corrects namespacing
+v 0.1.0 - first release
 
 ## Contributing
 
