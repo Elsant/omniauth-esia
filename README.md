@@ -1,4 +1,4 @@
-# Omniauth Esia (OAuth2)
+# OmniAuth Esia (OAuth2)
 
 This is the unofficial OmniAuth strategy for authenticating via OAuth2 to [ESIA (GosUslugi)](https://esia.gosuslugi.ru). Read more [here](http://minsvyaz.ru/ru/activity/directions/13/)
 
@@ -34,7 +34,7 @@ gem 'omniauth-esia'
 ```ruby
 # config/initializers/omniauth.rb
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :esia, ENV['ESIA_ID'], 
+  provider :esia, ENV['ESIA_ID'],
     scope:    'fullname email',
     key_path: "#{Rails.root}/config/keys/private.key",
     crt_path: "#{Rails.root}/config/keys/certificate.crt"
@@ -46,7 +46,7 @@ or in Your Rails application with Devise. See full instruction [here](https://gi
 ```ruby
 # config/initializers/devise.rb
 Devise.setup do |config|
-  config.omniauth :esia, ENV['ESIA_ID'], 
+  config.omniauth :esia, ENV['ESIA_ID'],
     scope:    'fullname email',
     key_path: "#{Rails.root}/config/keys/private.key",
     crt_path: "#{Rails.root}/config/keys/certificate.crt"
