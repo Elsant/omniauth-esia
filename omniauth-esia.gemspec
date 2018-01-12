@@ -4,7 +4,7 @@ require 'omniauth/esia/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'omniauth-esia'
-  spec.version       = Omniauth::Esia::VERSION
+  spec.version       = OmniAuth::Esia::VERSION
   spec.authors       = ['Elsant']
   spec.email         = ['elsant@nextmail.ru']
 

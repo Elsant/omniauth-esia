@@ -1,7 +1,7 @@
 require 'omniauth-oauth2'
 require 'base64'
 
-module Omniauth
+module OmniAuth
   module Strategies
     class Esia < OmniAuth::Strategies::OAuth2
 
@@ -56,9 +56,9 @@ module Omniauth
         code = request.params['code']
         client.auth_code.get_token(code,
           {
-            state: state, 
-            scope: options.scope, 
-            timestamp: timestamp, 
+            state: state,
+            scope: options.scope,
+            timestamp: timestamp,
             redirect_uri: callback_url,
             token_type: 'Bearer'
           }

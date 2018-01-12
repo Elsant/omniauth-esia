@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-RSpec.describe Omniauth::Strategies::Esia, :type => :strategy do
+RSpec.describe OmniAuth::Strategies::Esia, :type => :strategy do
 
   let(:request) { double('Request', :params => {}, :cookies => {}, :env => {}) }
 
   subject do
     args = ['client_id', @options || {}].compact
-    Omniauth::Strategies::Esia.new(*args).tap do |strategy|
+    OmniAuth::Strategies::Esia.new(*args).tap do |strategy|
       allow(strategy).to receive(:request) { request }
     end
   end
 
   it 'has a version number' do
-    expect(Omniauth::Esia::VERSION).not_to be nil
+    expect(OmniAuth::Esia::VERSION).not_to be nil
   end
 
   describe 'client options' do
