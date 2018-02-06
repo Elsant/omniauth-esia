@@ -86,9 +86,10 @@ module OmniAuth
         end
 
         def get_email
-          {'email' => access_token
+          { 'email' => access_token
               .get("/rs/prns/#{uid}/ctts?embed=(elements)")
               .parsed.fetch('elements', {})
+              .select { |e| e['type'] == 'EML' }
               .first.fetch('value', '') }
         rescue => e
           {}
