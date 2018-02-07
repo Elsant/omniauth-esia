@@ -90,7 +90,7 @@ module OmniAuth
               .get("/rs/prns/#{uid}/ctts?embed=(elements)")
               .parsed.fetch('elements', {})
               .find { |e| e['type'] == 'EML' }
-              &.dig('value') }
+              .fetch('value') }
         rescue => e
           {}
         end
