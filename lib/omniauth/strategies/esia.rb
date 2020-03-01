@@ -68,18 +68,35 @@ module OmniAuth
 
       private
 
-        def client_secret
-          @client_secret ||= begin
-            data = "#{options.scope}#{timestamp}#{options.client_id}#{state}"
-            key  = OpenSSL::PKey.read(File.read(options.key_path), options.key_passphrase)
-            crt  = OpenSSL::X509::Certificate.new(File.read(options.crt_path))
-            signed = OpenSSL::PKCS7.sign(crt, key, data, [], OpenSSL::PKCS7::DETACHED)
-            Base64.urlsafe_encode64(signed.to_der.to_s.force_encoding('utf-8'), padding: false)
-          end
-        end
+      def client_secret
+        @client_secret ||=  Base64.urlsafe_encode64(signed_data)
+      end
 
-        def state
-          @state ||= SecureRandom.uuid
+      def state
+        @state ||= SecureRandom.uuid
+      end
+
+      def data
+        @data ||= "#{options.scope}#{timestamp}#{options.client_id}#{state}"
+      end
+
+      def key
+        @key ||= OpenSSL::PKey.read(File.read(options.key_path), options.key_passphrase)
+      end
+
+      def crt
+        @crt ||= OpenSSL::X509::Certificate.new(File.read(options.crt_path))
+      end
+
+      def signed_data
+        @signed_data ||= key.sign(digester, data)
+      end
+
+      def digester
+          OpenSSL::Engine.load
+          engine = OpenSSL::Engine.by_id('gost')
+          engine.set_default(0xFFFF)
+          engine.digest('md_gost12_256')
         end
 
         def timestamp
