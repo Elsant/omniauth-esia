@@ -36,6 +36,7 @@ gem 'omniauth-esia'
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :esia, ENV['ESIA_ID'],
     scope:    'fullname email',
+    key_passphrase: 'password',
     key_path: "#{Rails.root}/config/keys/private.key",
     crt_path: "#{Rails.root}/config/keys/certificate.crt"
 end
@@ -48,6 +49,7 @@ or in Your Rails application with Devise. See full instruction [here](https://gi
 Devise.setup do |config|
   config.omniauth :esia, ENV['ESIA_ID'],
     scope:    'fullname email',
+    key_passphrase: 'password',
     key_path: "#{Rails.root}/config/keys/private.key",
     crt_path: "#{Rails.root}/config/keys/certificate.crt"
 end
@@ -71,6 +73,7 @@ client_options: {
       }
 ```
 ## Changes
+v 0.2.2 - adds key_passphrase option
 v 0.2.1 - corrects email fetching
 v 0.2.0 - corrects namespacing
 v 0.1.0 - first release
