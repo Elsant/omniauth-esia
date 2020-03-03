@@ -73,7 +73,7 @@ client_options: {
       }
 ```
 ## Changes
-v 0.2.2 - adds key_passphrase option
+v 0.2.3 - adds key_passphrase option
 v 0.2.1 - corrects email fetching
 v 0.2.0 - corrects namespacing
 v 0.1.0 - first release

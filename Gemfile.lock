@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-esia (0.2.2)
+    omniauth-esia (0.2.3)
       omniauth-oauth2 (~> 1.2)
 
 GEM
